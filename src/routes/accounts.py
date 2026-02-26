@@ -298,7 +298,7 @@ async def request_password_reset_token(
     await db.commit()
 
     reset_link = (
-        f"http://127.0.0.1/accounts/reset-password/complete/token?="
+        f"http://127.0.0.1/accounts/reset-password/complete/?token="
         f"{quote_plus(reset_token.token)}"
     )
     background_tasks.add_task(
