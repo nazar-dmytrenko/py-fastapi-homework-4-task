@@ -29,7 +29,7 @@ async def create_profile(
     is_admin = getattr(current_user, "group_id", None) == 3
     if current_user.id != user_id and not is_admin:
         raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
+            status_code=status.HTTP_403_FORBIDDEN,
             detail="You don't have permission to edit this profile."
         )
 
